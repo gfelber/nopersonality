@@ -14,7 +14,11 @@ Note current environment is included.
 + make
 
 ## build
-`make`
+```
+make      # amd64
+# OR
+make x86  # x86
+```
 
 ## Exit Codes:
 1. execve failed
