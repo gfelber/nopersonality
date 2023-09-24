@@ -14,7 +14,7 @@ Note current environment is included.
 + make
 
 ## build
-```
+```bash
 make      # amd64
 # OR
 make x86  # x86
