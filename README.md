@@ -2,7 +2,7 @@
 low profile wrapper (<256B) to disable ASLR with `ADDR_NO_RANDOMIZE`
 
 usage:
-```
+```bash
 ./nopersonality BINARY [ARGS...]
 ```
 
