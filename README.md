@@ -1,5 +1,5 @@
 # nopersonality
-low profile wrapper (<512B) to disable ASLR with `ADDR_NO_RANDOMIZE`
+low profile wrapper (<256B) to disable ASLR with `ADDR_NO_RANDOMIZE`
 
 usage:
 ```
