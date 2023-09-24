@@ -1,5 +1,5 @@
 # nopersonality
-low profile wrapper to disable ASLR with `ADDR_NO_RANDOMIZE`
+low profile wrapper (<512B) to disable ASLR with `ADDR_NO_RANDOMIZE`
 
 usage:
 ```
@@ -16,3 +16,7 @@ Note current environment is included.
 ## build
 `make`
 
+## Exit Codes:
+1. execve failed
+2. no BINARY specified 
+3. personality `ADDR_NO_RANDOMIZE` failed (docker disables by default)

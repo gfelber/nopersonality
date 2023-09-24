@@ -15,6 +15,9 @@ MAIN:
     mov rax, 0x87       ; PERSONALITY SYSCALL
     mov rdi, 0x0040000  ; ADDR_NO_RANDOMIZE
     syscall
+    mov rdi, 3          ; exit code
+    cmp rax, 0
+    jl EXIT
 
     ; Execute the specified binary using execve
     mov rax, 0x3b                 ; EXECVE SYSCALL
