@@ -17,5 +17,41 @@ jobs:
     - name: install dependencies
       run: sudo apt update && sudo apt install make nasm build-essential -y
 
-    - name: build
-      run: make && make x86
+    - name: build amd64
+      run: make
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+
+    - name: Upload amd64 binary
+      id: upload-release-asset1
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing its ID to get its outputs object, which include a `upload_url`
+        asset_path: ./dist/nopersonality
+        asset_name: nopersonality
+        asset_content_type: application/octet-stream
+
+    - name: build x86
+      run: make x86
+   
+    - name: Upload x86 binary
+      id: upload-release-asset2
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./dist/nopersonalityx86
+        asset_name: nopersonality_x86
+        asset_content_type: application/octet-stream
