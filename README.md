@@ -9,15 +9,12 @@ usage:
 Note current environment is included.
 
 ## Requirements
-+ nasm
-+ ld
-+ make
++ gcc
++ strip
 
 ## build
 ```bash
-make      # amd64
-# OR
-make x86  # x86
+make
 ```
 
 ## Exit Codes:
