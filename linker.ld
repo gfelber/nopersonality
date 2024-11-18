@@ -7,9 +7,6 @@ SECTIONS
 
     /* Discard unwanted sections */
     /DISCARD/ : {
-        *(.data)        /* Discard .data */
-        *(.bss)         /* Discard .bss */
-        *(.rodata*)     /* Discard any read-only data */
         *(.note.gnu.property)     /* Discard */
         *(.note.gnu.build-id)     /* Discard */
     }
